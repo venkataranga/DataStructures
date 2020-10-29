@@ -3,7 +3,7 @@ target/
 DataStructures.iml
 bin
 *.class
-
+**/*.class
 ### Eclipse & STS ###
 .apt_generated
 .classpath

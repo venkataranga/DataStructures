@@ -1,44 +1,55 @@
 package com.venkata.ds.graphtheory.weightedgraphs;
 
+import java.util.Objects;
+
 public class Edge {
 
-	String name;
-	int weight;
+	private String from;
+	private String to;
+	private Integer weight;
 	
 	
-	public Edge(String name) {
+	public Edge(String from, String to) {
 		super();
-		this.name = name;
+		this.from = from;
+		this.to = to;
 	}
-	public Edge(String name, int weight) {
+	public Edge(String from, String to, int weight) {
 		super();
-		this.name = name;
+		this.from = from;
+		this.to = to;
 		this.weight = weight;
 	}
-	
-	public String getName() {
-		return name;
+
+	public String getFrom(){ return from; }
+	public String getTo() {
+		return to;
 	}
-	public int getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Edge edge = (Edge) o;
+		return weight.intValue() == edge.weight.intValue() &&
+				from.equals(edge.from) &&
+				to.equals(edge.to);
+	}
+
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		return Objects.hash(from, to, weight);
 	}
-	
-	public boolean equals(Object obj) {
-		if(obj instanceof Edge)
-			return this.name.equalsIgnoreCase(((Edge)obj).getName());
 
-		return false;
-	}
-	
-	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Edge{" +
+				"from='" + from + '\'' +
+				", to='" + to + '\'' +
+				", weight=" + weight +
+				'}';
 	}
 }
